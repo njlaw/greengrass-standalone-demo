@@ -98,3 +98,11 @@ Hello World! [2]
 Client standalone-demo-iot-device-2 received PUBLISH (d0, q0, r1, m0, 'my/topic', ... (16 bytes))
 Hello World! [3]
 ```
+
+# Changes from pubsub.py
+standalone_pubsub.py is mostly the same as the pubsub.py example from AWS's SDK.  The following changes were made:
+1. Removed command line options that don't make sense in this scenario (e.g., related to WebSocket and HTTP proxies);
+2. Made required parameters required by ArgumentParser;
+3. Added a `--port` option;
+4. Removed the `if args.use_websocket == True` section; and,
+5. Changed the QoS to AT_MOST_ONCE since AT_LEAST_ONCE isn't supported by Greengrass.
