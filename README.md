@@ -6,6 +6,9 @@ devices do not have Internet access (i.e., only the Greengrass Core has Internet
 Obviously you don't want to follow this procedure exactly for a production deployment.  The Greengrass Core and IoT
 device private keys should be generated locally, preferably in hardware, on those respective devices.
 
+# Demo Setup
+![Topology Diagram](https://github.com/njlaw/greengrass-standalone-demo/raw/master/doc/topology.png "Topology")
+
 # Instructions
 Feel free to chose your own group and thing names and topics and just replace the references to them.  I've used Amazon
 Linux 2 as the OS for all the devices here (Greengrass Core, IoT device 1, and IoT device 2), but you could easily use
