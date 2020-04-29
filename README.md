@@ -21,19 +21,19 @@ any platform that supports Greengrass Core and the AWS IoT Device SDK, by modify
       `curl https://raw.githubusercontent.com/tianon/cgroupfs-mount/951c38ee8d802330454bdede20d85ec1c0f8d312/cgroupfs-mount > cgroupfs-mount.sh`  
       `chmod +x cgroupfs-mount.sh`  
       `sudo bash ./cgroupfs-mount.sh`  
-      `sudo yum install java-1.8.0-openjdk`
-      `sudo ln -s /usr/bin/java /usr/bin/java8`
-      `wget https://github.com/aws-samples/aws-greengrass-samples/raw/master/greengrass-dependency-checker-GGCv1.10.x.zip`
-      `unzip greengrass-dependency-checker-GGCv1.10.x.zip`
-      `cd greengrass-dependency-checker-GGCv1.10.x`
-      `sudo ./check_ggc_dependencies | more`
-      `cd`
-      `wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.1/greengrass-linux-x86-64-1.10.1.tar.gz`
-      `sudo tar xzvf greengrass-linux-x86-64-1.10.1.tar.gz -C /`
+      `sudo yum install java-1.8.0-openjdk`  
+      `sudo ln -s /usr/bin/java /usr/bin/java8`  
+      `wget https://github.com/aws-samples/aws-greengrass-samples/raw/master/greengrass-dependency-checker-GGCv1.10.x.zip`  
+      `unzip greengrass-dependency-checker-GGCv1.10.x.zip`  
+      `cd greengrass-dependency-checker-GGCv1.10.x`  
+      `sudo ./check_ggc_dependencies | more`  
+      `cd`  
+      `wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.1/greengrass-linux-x86-64-1.10.1.tar.gz`  
+      `sudo tar xzvf greengrass-linux-x86-64-1.10.1.tar.gz -C /`  
    2. Upload the config files from step 1.
    3. Finish Greengrass Core setup:  
       `cd /greengrass`  
-      `sudo tar xzvf ~/6893d449c9-setup.tar.gz`  
+      `sudo tar xzvf ~/6893d449c9-setup.tar.gz` (your config filename will be different)  
       `cd certs`  
       `sudo wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem`  
       `sudo /greengrass/ggc/core/greengrassd start`
@@ -65,7 +65,7 @@ any platform that supports Greengrass Core and the AWS IoT Device SDK, by modify
 11. Upload the saved certificates (from step 3) to `device-1` and `device-2` respectively.
 12. Run `mosquitto_sub` on `device-2`:
 ```
-[ec2-user@device-2 ~]$mosquitto_sub -h 172.23.4.13 -i standalone-demo-iot-device-2 -p 8883 -t my/topic --cert f47ecc169f.cert.pem --key f47ecc169f.private.key -d --cafile ggc-root.ca.pem
+[ec2-user@device-2 ~]$ mosquitto_sub -h 172.23.4.13 -i standalone-demo-iot-device-2 -p 8883 -t my/topic --cert f47ecc169f.cert.pem --key f47ecc169f.private.key -d --cafile ggc-root.ca.pem
 Client standalone-demo-iot-device-2 sending CONNECT
 Client standalone-demo-iot-device-2 received CONNACK (0)
 Client standalone-demo-iot-device-2 sending SUBSCRIBE (Mid: 1, Topic: my/topic, QoS: 0, Options: 0x00)
@@ -74,6 +74,7 @@ Subscribed (mid: 1): 0
 ```
 13. Run `standalone_pubsub.py` on `device-1`:
 ```
+[ec2-user@device-1 ~]$ cd greengrass-standalone-demo
 [ec2-user@device-1 greengrass-standalone-demo]$ python3 standalone_pubsub.py --endpoint 172.23.4.13 --cert ~/4d80d07ab1.cert.pem --key ~/4d80d07ab1.private.key --root-ca ~/ggc-root.ca.pem --client-id standalone-demo-iot-device-1
 Connecting to 172.23.4.13 with client ID 'standalone-demo-iot-device-1'...
 Connected!
