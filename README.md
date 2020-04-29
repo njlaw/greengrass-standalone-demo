@@ -100,7 +100,7 @@ Hello World! [3]
 ```
 
 # Changes from pubsub.py
-standalone_pubsub.py is mostly the same as the pubsub.py example from AWS's SDK.  The following changes were made:
+standalone_pubsub.py is mostly the same as the [pubsub.py example from AWS's SDK](https://github.com/aws/aws-iot-device-sdk-python-v2/blob/65454acdfaa2d28025ed0efe65965c14819c9e43/samples/pubsub.py).  The following changes were made:
 1. Removed command line options that don't make sense in this scenario (e.g., related to WebSocket and HTTP proxies);
 2. Made required parameters required by ArgumentParser;
 3. Added a `--port` option;
