@@ -37,7 +37,7 @@ any platform that supports Greengrass Core and the AWS IoT Device SDK, by modify
       `cd certs`  
       `sudo wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem`  
       `sudo /greengrass/ggc/core/greengrassd start`
-3. Add two new IoT devices to the group using default settings.  Call one `standalone-demo-iot-device-1` and the other `standalong-demo-iot-device-2`.  Save the generated certificates.
+3. Add two new IoT devices to the group using default settings.  Call one `standalone-demo-iot-device-1` and the other `standalone-demo-iot-device-2`.  Save the generated certificates.
 4. Create two subscriptions in the group.
    1. Source: `standalone-demo-iot-device-1`  
       Destination: `standalone-demo-iot-device-1`  
